@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict | Leukemia Type</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; padding: 30px; }
+        .card { background: white; max-width: 500px; margin: auto; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .upload-section { margin: 20px 0; }
+        .result-box { margin-top: 20px; padding: 15px; border-radius: 5px; background-color: #e8f4fd; border-left: 5px solid #3498db; }
+        .error { color: #e74c3c; font-weight: bold; }
+        .back-link { display: block; margin-top: 20px; font-size: 0.9em; color: #7f8c8d; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Upload Patient Data</h2>
+        <p>Select a CSV file containing gene expression values (7,129 features).</p>
+        
+        <div class="upload-section">
+            <form action="/predictdata" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <br><br>
+                <input type="submit" value="Predict Leukemia Type" style="cursor:pointer; padding: 10px; width: 100%; background-color: #27ae60; color: white; border: none; border-radius: 4px;">
+            </form>
+        </div>
+
+        {% if results %}
+        <div class="result-box">
+            <h4>Prediction Results:</h4>
+            {% for res in results %}
+                <p>The model predicts: <strong>{{ res }}</strong></p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <p class="error">System Error: {{ error }}</p>
+        {% endif %}
+
+        <a href="/" class="back-link">← Back to Info Page</a>
+    </div>
+</body>
+</html>

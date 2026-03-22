@@ -4,5 +4,7 @@ seaborn
 matplotlib
 scikit-learn
 scipy
-umap
+umap-learn
+Flask
+dill
 -e .

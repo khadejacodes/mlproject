@@ -24,8 +24,8 @@ class PredictPipeline:
             
             # 2. Get the prediction (0 or 1)
             preds = model.predict(data_scaled)
-            
-            return preds
+            results = ["ALL" if p == 1 else "AML" for p in preds]
+            return results
         
         except Exception as e:
             raise CustomException(e, sys)
