@@ -62,7 +62,14 @@ The application is built using a modular software engineering approach, ensuring
 mlproject/
 ├── artifacts/           # Saved Model (.pkl) and Preprocessor
 ├── src/
-│   ├── components/      # Data Ingestion, Transformation, Model
+│   ├── components/      # Data Ingestion, Transformation, Model Training
+│   ├── pipeline/        # Prediction and Training logic
+│   ├── logger.py        # Custom logging implementation
+│   └── exception.py     # Custom error handling
+├── templates/           # HTML Frontend
+├── app.py               # Flask Entry point
+├── Dockerfile           # Container configuration
+└── requirements.txt     # Python dependencies
 
 👨‍💻 Author
 Khadeja Student & Developer | Machine Learning Enthusiast
